@@ -11,9 +11,9 @@ namespace MapsAndWeatherData.Configuration
             builder.ToTable("Settings");
             builder.HasKey(s => s.Id);
             builder.Property(s => s.Id).HasDefaultValueSql("NEWSEQUENTIALID()");
-            builder.Property(s => s.Name).IsRequired().HasMaxLength(100);
-            builder.Property(s => s.Value).IsRequired().HasMaxLength(500);
-            builder.HasIndex(s => s.Name).IsUnique().IncludeProperties(s => s.Value);
+            builder.Property(s => s.Key).IsRequired().HasMaxLength(50);
+            builder.Property(s => s.Value).IsRequired().HasMaxLength(100);
+            builder.HasIndex(s => s.Key).IsUnique().IncludeProperties(s => s.Value);
         }         
     }
 }
