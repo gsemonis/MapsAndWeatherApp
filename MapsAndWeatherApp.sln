@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapsAndWeatherData", "MapsA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapsAndWeatherRepository", "MapsAndWeatherRepository\MapsAndWeatherRepository.csproj", "{71D17A8B-E02D-4B7A-9FD2-926851D4796E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapsAndWeatherFunctions", "MapsAndWeatherFunctions\MapsAndWeatherFunctions.csproj", "{12CBA8AD-E73E-441F-96C2-254FB1CA827A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapsAndWeatherFunctions", "MapsAndWeatherFunctions\MapsAndWeatherFunctions.csproj", "{14998286-E1B9-4077-95B4-84C18CF6A825}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{71D17A8B-E02D-4B7A-9FD2-926851D4796E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71D17A8B-E02D-4B7A-9FD2-926851D4796E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71D17A8B-E02D-4B7A-9FD2-926851D4796E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{12CBA8AD-E73E-441F-96C2-254FB1CA827A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{12CBA8AD-E73E-441F-96C2-254FB1CA827A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{12CBA8AD-E73E-441F-96C2-254FB1CA827A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{12CBA8AD-E73E-441F-96C2-254FB1CA827A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14998286-E1B9-4077-95B4-84C18CF6A825}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14998286-E1B9-4077-95B4-84C18CF6A825}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14998286-E1B9-4077-95B4-84C18CF6A825}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14998286-E1B9-4077-95B4-84C18CF6A825}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

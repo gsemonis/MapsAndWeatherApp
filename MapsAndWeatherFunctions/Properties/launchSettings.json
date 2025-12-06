@@ -2,7 +2,7 @@
   "profiles": {
     "MapsAndWeatherFunctions": {
       "commandName": "Project",
-      "commandLineArgs": "--port 7256",
+      "commandLineArgs": "--port 7031",
       "launchBrowser": false
     }
   }

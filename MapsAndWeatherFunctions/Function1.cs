@@ -1,22 +1,31 @@
 using System;
+using System.Threading.Tasks;
+using Azure.Messaging.ServiceBus;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 
-namespace MapsAndWeatherFunctions
+namespace MapsAndWeatherFunctions;
+
+public class Function1
 {
-    public class Function1
+    private readonly ILogger<Function1> _logger;
+
+    public Function1(ILogger<Function1> logger)
     {
-        private readonly ILogger _logger;
+        _logger = logger;
+    }
 
-        public Function1(ILoggerFactory loggerFactory)
-        {
-            _logger = loggerFactory.CreateLogger<Function1>();
-        }
+    [Function(nameof(Function1))]
+    public async Task Run(
+        [ServiceBusTrigger("mapsandweatherlogging", Connection = "AzureServiceBusConnection")]
+        ServiceBusReceivedMessage message,
+        ServiceBusMessageActions messageActions)
+    {
+        _logger.LogInformation("Message ID: {id}", message.MessageId);
+        _logger.LogInformation("Message Body: {body}", message.Body);
+        _logger.LogInformation("Message Content-Type: {contentType}", message.ContentType);
 
-        [Function("Function1")]
-        public void Run([ServiceBusTrigger("mapsandweatherlogging", Connection = "AzureServiceBusConnection")] string myQueueItem)
-        {
-            _logger.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-        }
+        // Complete the message
+        await messageActions.CompleteMessageAsync(message);
     }
 }
