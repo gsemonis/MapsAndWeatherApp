@@ -10,7 +10,7 @@ namespace MapsAndWeatherData.Configuration
         {
             builder.ToTable("Settings");
             builder.HasKey(s => s.Id);
-            builder.Property(s => s.Id).HasDefaultValueSql("NEWSEQUENTIALID()");
+            builder.Property(s => s.Id).ValueGeneratedOnAdd().HasDefaultValueSql("NEWSEQUENTIALID()");
             builder.Property(s => s.Key).IsRequired().HasMaxLength(50);
             builder.Property(s => s.Value).IsRequired().HasMaxLength(100);
             builder.HasIndex(s => s.Key).IsUnique().IncludeProperties(s => s.Value);

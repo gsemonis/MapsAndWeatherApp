@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace MapsAndWeatherData.Extensions
 {
-    public static class Extensions
+    public static class ConfigurationExtension
     {
         public static IServiceCollection AddDataAccess(
             this IServiceCollection services,

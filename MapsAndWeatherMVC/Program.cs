@@ -2,18 +2,15 @@ using MapsAndWeatherService.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//add configuration
-if (builder.Environment.IsDevelopment())
-{
-    builder.Configuration.AddEnvironmentVariables().AddJsonFile("appsettings.Development.json");
-}
-else
-{
-    builder.Configuration.AddEnvironmentVariables();
-}
+builder.Configuration.AddJsonFile("appsettings.Development.json", optional: true, reloadOnChange: true);
+builder.Configuration.AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true, reloadOnChange: true);
+builder.Configuration.AddEnvironmentVariables();
+
 // Add services to the container.
+builder.Services.ConfigureMapsAndWeatherServices(builder.Configuration);
+
 builder.Services.AddControllersWithViews();
-builder.Services.ConfigureMapsAndWeatherServices(builder.Configuration);    
+  
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
@@ -28,8 +25,12 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+// app.UseCors();
 
+//app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapControllers();
 
 app.MapControllerRoute(
     name: "default",

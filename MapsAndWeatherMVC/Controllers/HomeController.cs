@@ -1,25 +1,16 @@
-using System.Diagnostics;
 using MapsAndWeatherMVC.Models;
+using MapsAndWeatherService.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace MapsAndWeatherMVC.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController(ILogger<HomeController> logger, ISettingService settingService) : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public async Task<IActionResult> Index()
         {
-            _logger = logger;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
+            string? key = await settingService.GetSettingValueAsync("GoogleAPIKey");
+            ViewBag.Key = key ?? throw new Exception("google api key not found");
             return View();
         }
 

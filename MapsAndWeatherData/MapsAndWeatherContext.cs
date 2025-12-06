@@ -3,12 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MapsAndWeatherData
 {
-    public class MapsAndWeatherContext : DbContext
-    {
-        public MapsAndWeatherContext(DbContextOptions<MapsAndWeatherContext> options) : base(options)
-        {
-        }
+    public class MapsAndWeatherContext(DbContextOptions<MapsAndWeatherContext> options) : DbContext(options)
+    {       
         public DbSet<Setting> Settings { get; set; }
+        public DbSet<Log> Logs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
